@@ -16,7 +16,7 @@
 # pylint: disable=attribute-defined-outside-init,unsubscriptable-object
 
 from qiskit.compiler import assemble
-from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, Aer
+from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
 from .backends.fake_melbourne import FakeMelbourne
 
 def phase_oracle(circuit, register):
