@@ -28,7 +28,7 @@ from qiskit.chemistry import QiskitChemistry
 # setup qiskit.chemistry logging
 #import logging
 from qiskit.chemistry import set_qiskit_chemistry_logging
-set_qiskit_chemistry_logging(logging.ERROR) # choose among DEBUG, INFO, WARNING, ERROR, CRITICAL and NOTSET
+#set_qiskit_chemistry_logging(logging.ERROR) # choose among DEBUG, INFO, WARNING, ERROR, CRITICAL and NOTSET
 
 def VQE_circuit(depth_level):
     qiskit_chemistry_dict['algorithm']['name'] = 'VQE'
