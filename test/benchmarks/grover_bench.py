@@ -52,7 +52,7 @@ class GroverBenchmarks:
     param_names = ['op_level']
     #timeout = 600
 
-    def setup(self):
+    def setup(self, _):
         #seed = 42
         self.backend = FakeMelbourne()
         self.circuit = get_grover_circuit()
