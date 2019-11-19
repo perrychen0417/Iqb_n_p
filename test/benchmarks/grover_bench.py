@@ -44,9 +44,7 @@ def get_grover_circuit():
     phase_oracle(groverCircuit, qr)
     inversion_about_average(groverCircuit, qr)
 
-    groverCircuit.measure(qr,cr)
-
-
+    #groverCircuit.measure(qr,cr)
 
 
 class GroverBenchmarks:
@@ -54,7 +52,7 @@ class GroverBenchmarks:
     param_names = ['op_level']
     #timeout = 600
 
-    def setup(self, op_level):
+    def setup(self):
         #seed = 42
         self.backend = FakeMelbourne()
         self.circuit = get_grover_circuit()
