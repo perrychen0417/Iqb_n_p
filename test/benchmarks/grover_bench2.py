@@ -56,7 +56,7 @@ def get_grover_circuit():
         q.x(range(3))
         q.h(range(3))
         q.barrier(range(4))
-    return groverCircuit
+    return q
     #groverCircuit.measure(qr,cr)
 
 
