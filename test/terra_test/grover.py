@@ -6,22 +6,22 @@ import numpy as np
 from qiskit import IBMQ, BasicAer
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, execute
 
-Class GroverCircuit:
-    def phase_oracle(circuit, register):
-        circuit.x(register[0])
-        circuit.cz(register[0], register[1])
-        circuit.x(register[0])
+def phase_oracle(circuit, register):
+    circuit.x(register[0])
+    circuit.cz(register[0], register[1])
+    circuit.x(register[0])
 
-    def inversion_about_average(circuit, register):
-        """Apply inversion about the average step of Grover's algorithm."""
-        circuit.h(register)
-        circuit.x(register)
-        circuit.h(register[1])
-        circuit.cx(register[0], register[1])
-        circuit.h(register[1])
-        circuit.x(register)
-        circuit.h(register)
+def inversion_about_average(circuit, register):
+    """Apply inversion about the average step of Grover's algorithm."""
+    circuit.h(register)
+    circuit.x(register)
+    circuit.h(register[1])
+    circuit.cx(register[0], register[1])
+    circuit.h(register[1])
+    circuit.x(register)
+    circuit.h(register)
 
+def get_grover_circuit():
     qr = QuantumRegister(2)
     cr = ClassicalRegister(2)
 
@@ -32,3 +32,10 @@ Class GroverCircuit:
     inversion_about_average(groverCircuit, qr)
 
     groverCircuit.measure(qr,cr)
+
+
+class GroverCircuit:
+
+
+    def setup(self,n):
+        self.circuit = get_grover_circuit()
