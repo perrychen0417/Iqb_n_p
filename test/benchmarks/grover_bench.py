@@ -43,7 +43,7 @@ def get_grover_circuit():
 
     phase_oracle(groverCircuit, qr)
     inversion_about_average(groverCircuit, qr)
-
+    return groverCircuit
     #groverCircuit.measure(qr,cr)
 
 
