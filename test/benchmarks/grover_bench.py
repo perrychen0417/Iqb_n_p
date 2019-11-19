@@ -59,8 +59,5 @@ class GroverBenchmarks:
         self.backend = FakeMelbourne()
         self.circuit = get_grover_circuit()
 
-        #random_circuit(n_qubits, depth, measure=True,
-                                      #conditional=True)
-
     def time_optimize_level(self, op_level):
-        transpile(self.circuit,backend=self.backend,optimization_level=op_level)
+        transpile(self.circuit,self.backend,optimization_level=op_level)
