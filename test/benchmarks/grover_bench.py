@@ -34,7 +34,7 @@ def inversion_about_average(circuit, register):
     circuit.x(register)
     circuit.h(register)
 
-def get_grover_circuit(op_level,backend):
+def get_grover_circuit():
     qr = QuantumRegister(2)
     cr = ClassicalRegister(2)
 
@@ -45,7 +45,7 @@ def get_grover_circuit(op_level,backend):
     inversion_about_average(groverCircuit, qr)
 
     groverCircuit.measure(qr,cr)
-    transpile(groverCircuit,backend=backend,optimization_level=op_level)
+
 
 
 
@@ -57,11 +57,10 @@ class GroverBenchmarks:
     def setup(self, op_level):
         #seed = 42
         self.backend = FakeMelbourne()
-        self.circuit = get_grover_circuit(op_level,self.backend)
+        self.circuit = get_grover_circuit()
 
         #random_circuit(n_qubits, depth, measure=True,
                                       #conditional=True)
 
-    #def time_optimize_level(self, op_level):
-
-        #assemble(self.circuit)
+    def time_optimize_level(self, op_level):
+        transpile(groverCircuit,backend=backend,optimization_level=self.backend)
