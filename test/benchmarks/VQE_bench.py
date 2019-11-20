@@ -36,12 +36,12 @@ def VQE_circuit(depth_level):
     qiskit_chemistry_dict['variational_form'] = {'name': 'RYRZ', 'depth': depth_level, 'entanglement':'full'}
     return qiskit_chemistry_dict
 
-class VQE_benchmark:
+class VQEBenchmarks:
     params = ([0, 1, 2, 3])
     param_names = ['depth_level']
     def setup(self, depth_level):
         #seed = 42
-        self.backend = qiskit.BasicAer.get_backend('statevector_simulator')
+        self.backend = BasicAer.get_backend('statevector_simulator')
         self.circuit = VQE_circuit(depth_level)
     def time_optimize_level():
         solver.run(self.circuit, backend=self.backend)
