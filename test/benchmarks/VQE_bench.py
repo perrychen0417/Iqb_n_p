@@ -47,12 +47,15 @@ def VQE_circuit(depth_level):
 
 class VQEBenchmarks:
     params = ([0, 1, 2, 3])
-    param_names = ['depth_level']
+    param_names = ['op_level']
+    
+    depth_level=4
+    
     def setup(self, depth_level):
         #seed = 42
         self.backend = BasicAer.get_backend('statevector_simulator')
         self.circuit = VQE_circuit(depth_level)
-    def time_optimize_level():
-        solver.run(self.circuit, backend=self.backend)
+    def time_optimize_level(self,op_level):
+        transpile(self.circuit,self.backend,optimization_level=op_level)
 # solver = QiskitChemistry()
 # result = solver.run(qiskit_chemistry_dict, backend=backend)
