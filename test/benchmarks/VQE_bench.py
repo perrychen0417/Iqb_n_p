@@ -30,7 +30,16 @@ from qiskit.chemistry import QiskitChemistry
 from qiskit.chemistry import set_qiskit_chemistry_logging
 #set_qiskit_chemistry_logging(logging.ERROR) # choose among DEBUG, INFO, WARNING, ERROR, CRITICAL and NOTSET
 
+
 def VQE_circuit(depth_level):
+    qiskit_chemistry_dict = {
+    'driver': {'name': 'HDF5'},
+    'HDF5': {'hdf5_input': 'H2/H2_equilibrium_0.735_sto-3g.hdf5'},
+    'operator': {'name':'hamiltonian', 
+                 'qubit_mapping': 'parity', 
+                 'two_qubit_reduction': True},
+    'algorithm': {'name': 'ExactEigensolver'}
+    }
     qiskit_chemistry_dict['algorithm']['name'] = 'VQE'
     qiskit_chemistry_dict['optimizer'] = {'name': 'SPSA', 'max_trials': 350}
     qiskit_chemistry_dict['variational_form'] = {'name': 'RYRZ', 'depth': depth_level, 'entanglement':'full'}
